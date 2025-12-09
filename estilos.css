@@ -1,0 +1,213 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 900px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* --- INPUT SECTION --- */
+.input-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 15px;
+    border: 2px solid #e1e4e8;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #4a90e2;
+}
+
+#addBtn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#addBtn:hover {
+    background-color: #357abd;
+}
+
+#addBtn:active {
+    transform: scale(0.98);
+}
+
+/* --- BOARD LAYOUT (2 Columnas) --- */
+.boards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .boards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.board {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    min-height: 300px; 
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.board-header h2 {
+    font-size: 1.2rem;
+    color: #444;
+}
+
+/* Estilos específicos para distinguir las columnas */
+.pending-board { border-top: 5px solid #f39c12; } /* Naranja */
+.completed-board { border-top: 5px solid #27ae60; } /* Verde */
+
+.badge {
+    background: #eee;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #666;
+}
+
+/* --- LIST ITEMS (TAREAS) --- */
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-color: #ddd;
+}
+
+.task-content {
+    font-size: 1rem;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Estilo para tarea completada */
+.completed-item .task-content {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.btn-icon {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: background-color 0.2s;
+}
+
+/* Botón Check*/
+.btn-check {
+    background-color: #e8f5e9;
+    color: #27ae60;
+}
+.btn-check:hover { background-color: #c8e6c9; }
+
+/* Botón desmarcar */
+.btn-return {
+    background-color: #fff3e0;
+    color: #f39c12;
+}
+.btn-return:hover { background-color: #ffe0b2; }
+
+/* Botón Delete */
+.btn-delete {
+    background-color: #ffebee;
+    color: #e74c3c;
+}
+.btn-delete:hover { background-color: #ffcdd2; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
